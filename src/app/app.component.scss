@@ -1,8 +1,11 @@
 .Jibble-container{
     height: 100%;
+    background-color: rgba(253, 248, 248, 0.5);
+    margin: 30px;
     .Jibble-header{
         height: 50px;
         padding: 10px;
+        border-bottom: solid 1px lightgray;
         text-align: center;
         .title{
             font-size: 20px;
@@ -15,7 +18,7 @@
 
     .Jibble-content{
         padding: 0px 15px 15px;
-        height: calc(100% - 140px);
+        height: calc(100% - 166px);
         overflow: auto;
         .Jibble-items-container{
             .Jibble-item{
@@ -42,5 +45,10 @@
         display: flex;
         align-items: center;
         padding: 0px 17px;
+        border-top: solid 1px lightgray;
+    }
+    .server-error{
+        padding: 10px 0px;
+        color: darkred;
     }
 }

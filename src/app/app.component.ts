@@ -71,9 +71,11 @@ export class AppComponent {
     let textMessage = "Edit post title:"
     var title = prompt(textMessage, item.post.title);
     if (title !== null || title !== "") {
-      txt = title;
-      item.post.title = txt;
-      this.postService.editPost(item.post).subscribe(res => {
+      let post = Object.assign({},item.post) ;
+      post.title = title;
+      // txt = title;
+      // item.post.title = txt;
+      this.postService.editPost(post).subscribe(res => {
         this.resetServerError();
         if (res) {
           item.post = res;
@@ -84,6 +86,7 @@ export class AppComponent {
   }
   handleError(error){
     this.serverError = true;
+    alert('Server error');
   }
   resetServerError(){
     this.serverError = false;
