@@ -18,17 +18,16 @@ export class PostServiceService {
   public getPost(postId: number): Observable<Array<post>> {
     return this.httpClient.get<Array<post>>(`${this.BASE_PATH}/posts/${postId}`);
   }
-
   
-  public addPost(): Observable<post> {
-    return this.httpClient.get<post>(`${this.BASE_PATH}/post`);
+  public addPost(post:any): Observable<post> {
+    return this.httpClient.post<post>(`${this.BASE_PATH}/posts`, post);
   }
   
-  public editPost(): Observable<post> {
-    return this.httpClient.get<post>(`${this.BASE_PATH}/post`);
+  public editPost(modifiedPost: post): Observable<post> {
+    return this.httpClient.put<post>(`${this.BASE_PATH}/posts/${modifiedPost.id}`, modifiedPost);
   }
   
-  public deletePost(): Observable<post> {
-    return this.httpClient.get<post>(`${this.BASE_PATH}/post`);
+  public deletePost(postId: number): Observable<{}> {
+    return this.httpClient.delete<{}>(`${this.BASE_PATH}/posts/${postId}`);
   }
 }

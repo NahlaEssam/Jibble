@@ -14,19 +14,19 @@ export class UserServiceService {
   public getAllUsers(): Observable<Array<User>> {
     return this.httpClient.get<Array<User>>(`${this.BASE_PATH}/users`);
   }
-  public getUser(userId: number): Observable<Array<User>> {
-    return this.httpClient.get<Array<User>>(`${this.BASE_PATH}/users/${userId}`);
+  public getUser(userId: number): Observable<User> {
+    return this.httpClient.get<User>(`${this.BASE_PATH}/users/${userId}`);
   }
   
-  public addUser(): Observable<User> {
-    return this.httpClient.get<User>(`${this.BASE_PATH}/user`);
+  public addUser(user: any): Observable<User> {
+    return this.httpClient.post<User>(`${this.BASE_PATH}/users`, user);
   }
   
-  public editUser(): Observable<User> {
-    return this.httpClient.get<User>(`${this.BASE_PATH}/user`);
+  public editUser(modifiedUser: User): Observable<User> {
+    return this.httpClient.put<User>(`${this.BASE_PATH}/users`, modifiedUser);
   }
   
-  public deleteUser(): Observable<User> {
-    return this.httpClient.get<User>(`${this.BASE_PATH}/user`);
+  public deleteUser(userId: number): Observable<{}> {
+    return this.httpClient.delete<{}>(`${this.BASE_PATH}/users/${userId}`);
   }
 }

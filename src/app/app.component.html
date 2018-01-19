@@ -1,5 +1,27 @@
-<div *ngFor="let item of data">
-    {{item.user.name}} - 
-    {{item.post.title}} - 
-    {{item.album.title}}
+
+
+<div class="Jibble-container">
+    <div class="Jibble-header">
+        <div class="title">Jibble</div>
+        <div class="sub-title">Crud Assignment</div>
+    </div>
+    <div class="Jibble-content">
+        <div class="Jibble-items-container">
+            <div class="Jibble-item" *ngFor="let item of data" > 
+                    <div class="item"> 
+                        <span> {{item.user.name}} -  </span>
+                        <span> {{item.post.title}} -  </span>
+                        <span> {{item.album.title}} </span>
+                    </div>
+                     
+                    <i class="material-icons icon" (click)="editPostTitle(item)"> mode_edit </i>
+                    <i class="material-icons icon" (click)="deleteItem(item)"> clear </i>
+            </div>
+           
+        </div>
+
+    </div>
+    <div class="Jibble-total-count">
+           Total count : {{data.length}}
+    </div>
 </div>

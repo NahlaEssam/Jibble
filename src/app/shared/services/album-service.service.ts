@@ -18,16 +18,16 @@ export class AlbumServiceService {
     return this.httpClient.get<Array<album>>(`${this.BASE_PATH}/albums?userId=${userId}`);
   }
   
-  public addAlbum(): Observable<album> {
-    return this.httpClient.get<album>(`${this.BASE_PATH}/album`);
+  public addAlbum(album:any): Observable<album> {
+    return this.httpClient.post<album>(`${this.BASE_PATH}/albums`, album);
   }
   
-  public editAlbum(): Observable<album> {
-    return this.httpClient.get<album>(`${this.BASE_PATH}/album`);
+  public editAlbum(modifiedAlbum: album): Observable<album> {
+    return this.httpClient.put<album>(`${this.BASE_PATH}/albums`, modifiedAlbum );
   }
   
-  public deleteAlbum(): Observable<album> {
-    return this.httpClient.get<album>(`${this.BASE_PATH}/album`);
+  public deleteAlbum(albumId: number): Observable<{}> {
+    return this.httpClient.delete<{}>(`${this.BASE_PATH}/albums/${albumId}`);
   }
   
 }
